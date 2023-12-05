@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Is this even or odd?</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt1"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <input
+                  id="orolt2"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <input
+                  id="orolt3"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="fat" style="font-size: 20px;">Result for biggest</code></pre>
+              <pre><code id="thin" style="font-size: 20px;">Result for second</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function doSomething() {
+        const firstElement = document.getElementById("orolt1"); // Element-ee buhleer n avah
+        const firstText = firstElement.value; // Element-eesee utgaa avah
+        const firstNumber = Number(firstText); // Utgaa too ruu horvuuleh
+
+        const secondElement = document.getElementById("orolt2"); // Element-ee buhleer n avah
+        const secondText = secondElement.value; // Element-eesee utgaa avah
+        const secondNumber = Number(secondText); // Utgaa too ruu horvuuleh
+
+        const thirdElement = document.getElementById("orolt3"); // Element-ee buhleer n avah
+        const thirdText = thirdElement.value; // Element-eesee utgaa avah
+        const thirdNumber = Number(thirdText); // Utgaa too ruu horvuuleh
+        
+        let fatResult = "";
+        let thinResult = '';
+
+        // Bodolt
+        if (firstNumber > secondNumber && firstNumber > thirdNumber) {
+          fatResult = 'biggest number is' + firstNumber
+          if (secondNumber > thirdNumber) {
+            thinResult = 'second biggest number is' + secondNumber
+          }
+          else {
+            thinResult = 'second biggest number is' + thirdNumber
+          }
+        }
+        if (secondNumber > firstNumber && secondNumber > thirdNumber) {
+          fatResult = 'biggest number is' + secondNumber
+          if (firstNumber > thirdNumber) {
+            thinResult = 'second biggest number is' + firstNumber
+          }
+          else {
+            thinResult = 'second biggest number is' + thirdNumber
+          }
+        }
+        if (thirdNumber > firstNumber && thirdNumber>secondNumber) {
+          fatResult = 'biggest number is' + thirdNumber
+          if (secondNumber > firstNumber) {
+            thinResult = 'second biggest number is' + secondNumber
+          }
+          else {
+            thinResult = 'second biggest number is' + firstNumber
+          }
+        }
+
+        document.getElementById("fat").innerText = fatResult; //
+        document.getElementById('thin').innerText = thinResult;
+      }
+    </script>
+  </body>
+</html>
