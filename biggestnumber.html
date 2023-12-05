@@ -35,6 +35,12 @@
                   type="text"
                   placeholder="Input"
                 />
+                <input
+                  id="orolt4"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
                 <button
                   class="button is-primary is-large"
                   onclick="doSomething();"
@@ -52,50 +58,69 @@
 
     <script>
       function doSomething() {
-        const firstElement = document.getElementById("orolt1"); // Element-ee buhleer n avah
-        const firstText = firstElement.value; // Element-eesee utgaa avah
-        const firstNumber = Number(firstText); // Utgaa too ruu horvuuleh
+        const firstNumber = Number(document.getElementById("orolt1").value); // Element-ee buhleer n avah
 
-        const secondElement = document.getElementById("orolt2"); // Element-ee buhleer n avah
-        const secondText = secondElement.value; // Element-eesee utgaa avah
-        const secondNumber = Number(secondText); // Utgaa too ruu horvuuleh
+        const secondNumber = Number(document.getElementById("orolt2").value);
 
-        const thirdElement = document.getElementById("orolt3"); // Element-ee buhleer n avah
-        const thirdText = thirdElement.value; // Element-eesee utgaa avah
-        const thirdNumber = Number(thirdText); // Utgaa too ruu horvuuleh
+        const thirdNumber = Number(document.getElementById("orolt3").value);
+
+        const fourthNumber = Number(document.getElementById("orolt4").value);
         
         let fatResult = "";
         let thinResult = '';
 
         // Bodolt
-        if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-          fatResult = 'biggest number is' + firstNumber
-          if (secondNumber > thirdNumber) {
-            thinResult = 'second biggest number is' + secondNumber
+        if (firstNumber > secondNumber && firstNumber > thirdNumber && firstNumber > fourthNumber) {
+          fatResult = 'biggest number is'+ ' ' + firstNumber
+          if (secondNumber > thirdNumber && secondNumber > fourthNumber) {
+            thinResult = 'second biggest number is'+ ' ' + secondNumber
+          }
+          else if (thirdNumber > secondNumber && thirdNumber > fourthNumber) {
+            thinResult = 'second biggest number is'+ ' ' + thirdNumber
           }
           else {
-            thinResult = 'second biggest number is' + thirdNumber
+            thinResult = 'second biggest number is'+ ' ' + fourthNumber
           }
         }
-        if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-          fatResult = 'biggest number is' + secondNumber
-          if (firstNumber > thirdNumber) {
-            thinResult = 'second biggest number is' + firstNumber
+        else if (secondNumber > firstNumber && secondNumber > thirdNumber && secondNumber > fourthNumber) {
+          fatResult = 'biggest number is'+ ' ' + secondNumber
+          if (thirdNumber > firstNumber && thirdNumber > fourthNumber) {
+            thinResult = 'second biggest number is'+ ' ' + thirdNumber
+          }
+          else if (fourthNumber > firstNumber && fourthNumber > thirdNumber) {
+            thinResult = 'second biggest number is'+ ' ' + fourthNumber
           }
           else {
-            thinResult = 'second biggest number is' + thirdNumber
+            thinResult = 'second biggest number is'+ ' ' + firstNumber
           }
         }
-        if (thirdNumber > firstNumber && thirdNumber>secondNumber) {
-          fatResult = 'biggest number is' + thirdNumber
-          if (secondNumber > firstNumber) {
-            thinResult = 'second biggest number is' + secondNumber
+        else if (thirdNumber > firstNumber && thirdNumber>secondNumber && thirdNumber>fourthNumber) {
+          fatResult = 'biggest number is'+ ' ' + thirdNumber
+          if (secondNumber > firstNumber && secondNumber > fourthNumber) {
+            thinResult = 'second biggest number is'+ ' ' + secondNumber
+          }
+          else if (fourthNumber > firstNumber && fourthNumber > secondNumber) {
+            thinResult = 'second biggest number is'+ ' ' + fourthNumber
           }
           else {
-            thinResult = 'second biggest number is' + firstNumber
+            thinResult = 'second biggest number is'+ ' ' + firstNumber
           }
         }
-
+        else if (fourthNumber > firstNumber && fourthNumber>secondNumber && fourthNumber>thirdNumber) {
+          fatResult = 'biggest number is'+ ' ' + fourthNumber
+          if (secondNumber > firstNumber && secondNumber > thirdNumber) {
+            thinResult = 'second biggest number is'+ ' ' + secondNumber
+          }
+          else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
+            thinResult = 'second biggest number is'+ ' ' + thirdNumber
+          }
+          else {
+            thinResult = 'second biggest number is'+ ' ' + firstNumber
+          }
+        }
+        else {
+          thinResult = "dont input a string"
+        }
         document.getElementById("fat").innerText = fatResult; //
         document.getElementById('thin').innerText = thinResult;
       }
