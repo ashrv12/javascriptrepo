@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">The middle number</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt1"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <input
+                  id="orolt2"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <input
+                  id="orolt3"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;">Results</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function doSomething() {
+        const num1 = Number(document.getElementById('orolt1').value)
+        const num2 = Number(document.getElementById('orolt2').value)
+        const num3 = Number(document.getElementById('orolt3').value)
+        let middle = "";
+        let large = '';
+
+        // Bodolt
+        if (num1 > num2 && num1 > num3) {
+            large = num1
+            if (num2 > num3) {
+              middle = num2
+            }
+            else {
+              middle = num3
+            }
+        }
+        else if (num2 > num1 && num2 > num3) {
+            large = num2
+            if (num1 > num3) {
+              middle = num1
+            }
+            else {
+              middle = num3
+            }
+        }
+        else if (num3 > num2 && num3 > num1) {
+            large = num3
+            if (num2 > num1) {
+              middle = num2
+            }
+            else {
+              middle = num1
+            }
+        }
+        else {
+          middle = 'please input a number'
+        }
+        document.getElementById("garalt").innerText = middle; //
+      }
+    </script>
+  </body>
+</html>

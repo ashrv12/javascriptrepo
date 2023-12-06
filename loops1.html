@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- all even numbers -->
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Find the sum of all even numbers til</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of all even numbers -->
+
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Find the sum of all numbers til</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="input1"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="toSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt2" style="font-size: 20px;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bro function -->
+
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <div
+          class="is-flex is-flex-direction-column is-justify-content-center"
+          style="height: 100vh"
+        >
+          <div class="box">
+              <h3 class="title is-3">Highest number divisible by 3-5</h3>
+            <div class="is-flex mb-4">
+              <input
+                id="input2"
+                class="input is-large"
+                type="text"
+                placeholder="Input"
+              />
+              <button
+                class="button is-primary is-large"
+                onclick="bro();"
+              >
+                Бодох
+              </button>
+            </div>
+            <pre><code id="broResult" style="font-size: 20px;"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1000th power stuff -->
+
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <div
+        class="is-flex is-flex-direction-column is-justify-content-center"
+        style="height: 100vh"
+      >
+        <div class="box">
+            <h3 class="title is-3">1000th power</h3>
+          <div class="is-flex mb-4">
+            <input
+              id="input3"
+              class="input is-large"
+              type="text"
+              placeholder="Input"
+            />
+            <button
+              class="button is-primary is-large"
+              onclick="power();"
+            >
+              Бодох
+            </button>
+          </div>
+          <pre><code id="powerResult" style="font-size: 20px;"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+      function doSomething() {
+        const a = Number(document.getElementById('orolt').value)
+        let result = 0;
+
+        // Bodolt
+        for (let i = 0; i <= a; i++) {
+          if (i%2 == 0){
+            result = result + i
+          }
+        }
+        
+
+        document.getElementById("garalt").innerText = result; //
+
+        // start of tosomething
+
+      }
+      function toSomething() {
+        const b = Number(document.getElementById('input1').value)
+        let sumofall = 0;
+
+        // Bodolt
+        for (let i = 0; i <= b; i++) {
+          sumofall = sumofall + i
+        }
+        
+
+        document.getElementById("garalt2").innerText = sumofall; //
+      }
+      // teacher's class
+      function bro() {
+        const c = Number(document.getElementById('input2').value)
+        let highT = 0;
+
+        for (let i = 0; i <= c ; i++) {
+          if (i%3 == 0) {
+            if (i%5 == 0) {
+              if (i > highT) {
+                highT = i
+              }
+            }
+          }
+        }
+
+        document.getElementById('broResult').innerText = highT;
+
+      }
+      function power() {
+        const d = Number(document.getElementById('input3').value)
+        let fn = 0;
+        let z = 1000;
+        if (d < 2){
+          document.getElementById('powerResult').innerText = 'Please input a number above 1 and non negative'
+        }
+        else if (d > 1) {
+          for (let i = 0; i < z ; i++) {
+            fn = d**i
+            if (fn > 1000) {
+              break;
+            }
+
+          }
+          document.getElementById('powerResult').innerText = (d + ' to the power of ' + z + ' is ' + fn);
+        }
+        else {
+          document.getElementById('powerResult').innerText = 'Please input a number above 1 and non negative/ No words pls';
+        }
+      }
+    </script>
+  </body>
+</html>

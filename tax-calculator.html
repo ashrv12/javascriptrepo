@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Input your salary plus tax region</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <input
+                  id="orolt2"
+                  class="input is-large"
+                  type="text"
+                  placeholder="NY,CA,TX"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;">Results</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function doSomething() {
+        const salary = Number(document.getElementById('orolt').value);
+        const state = document.getElementById('orolt2').value;
+        let salaryaftertax = '';
+        let ny = 0.09;
+        let ca = 0.08;
+        let tx = 0.07;
+
+        // Bodolt
+        if (state == 'NY') {
+          if (salary > 0) {
+            salaryaftertax = 'You are in the state of NY, your tax is ' + (salary * ny);
+          }
+          else {
+            salaryaftertax = 'Please input a proper number'
+          }
+        }
+        else if (state == 'CA') {
+          if (salary > 0) {
+            salaryaftertax = 'You are in the state of CA, your tax is ' + (salary * ca);
+          }
+          else {
+            salaryaftertax = 'Please input a proper number'
+          }
+        }
+        else if (state == 'TX'){
+          if (salary > 0) {
+            salaryaftertax = 'You are in the state of TX, your tax is ' + (salary * tx);
+          }
+          else {
+            salaryaftertax = 'Please input a proper number'
+          }
+        }
+        else {
+          salaryaftertax = 'We only support New York, California, and Texas'
+        }
+
+        document.getElementById("garalt").innerText = salaryaftertax; //
+      }
+    </script>
+  </body>
+</html>
