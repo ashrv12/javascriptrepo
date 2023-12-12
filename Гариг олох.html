@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)https://pinecone-assignments.vercel.app/docs/javascript-basics/object/easy/exact-day/solution.html -->
+<html class="has-background-link-light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Гариг олох</title>
+    <link rel="stylesheet" href="./Гариг олох_files/bulma.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns mt-6 mb-6">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="is-flex mb-4">
+            <div class="mr-6">Нэр: <strong>Б. Тэргэлтэнгис </strong></div>
+            <div>Анги: <strong>HOP-1B</strong></div>
+          </div>
+
+          <div class="box content">
+            <h2>Гариг олох</h2>
+            <p>Өгөгдсөн он сар өдөрөөр аль гариг вэ гэдгийг харуул.</p>
+
+            <p>
+              <strong>Жишээ:</strong>
+            </p>
+            <pre><code>Оролт: "2023-05-01"
+Гаралт: Monday</code></pre>
+          </div>
+
+          <div class="box content">
+            <h3>Бодолт</h3>
+
+            <div class="field has-addons">
+              <div class="control">
+                <input id="date" class="input" name="date" placeholder="Он,сар,өдөр">
+              </div>
+              <div class="control">
+                <button class="button is-link" onclick="execute()">Бодох</button>
+              </div>
+            </div>
+
+            <strong>Үр дүн</strong>
+            <pre><code id="output">Tuesday</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function runSolution(dateString) {
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const date = new Date(dateString);
+        const dayOfWeek = daysOfWeek[date.getDay()];
+        return dayOfWeek;
+      }
+
+      function execute() {
+        const date = document.getElementById('date').value;
+        let result = runSolution(date);
+        document.getElementById('output').innerHTML = result;
+      }
+    </script>
+  
+
+</body></html>
