@@ -149,6 +149,80 @@
         // |o+++++++++
 
         // start of center pyramid without center
+        // |ooo*
+        // |oo*o*
+        // |o*ooo*
+        // |*******
+
+        let empty = '';
+        let cou = a;
+        let emptyspa = 1;
+        let lastline = 1;
+        for (i = 0; i < a; i++) {
+          empty = ''; // resetting it for round 2
+          cou = cou - 1
+          if (i == 0) {
+            empty += space.repeat(cou)
+            empty += star;
+            console.log(empty)
+            lastline += 2;
+          }
+          else if (i < (a-1)) {
+            empty += space.repeat(cou)
+            empty += star;
+            empty += space.repeat(emptyspa)
+            emptyspa += 2; // adding the next spacing
+            empty += star;
+            console.log(empty)
+            lastline += 2;
+          }
+          else if (i == a-1) {
+            empty += star.repeat(lastline)
+            console.log(empty)
+          }
+
+        }
+        // start of diamond with space
+        let dia = '';
+        let diacou = a;
+        let diaspa = 1;
+        for (i = 0; i < a; i++) {
+          dia = '';
+          diacou -= 1;
+          if (i == 0) {
+            dia += space.repeat(diacou)
+            dia += star
+            console.log(dia)
+          }
+          else {
+            dia += space.repeat(diacou)
+            dia += star
+            dia += space.repeat(diaspa)
+            diaspa += 2;
+            dia += star
+            console.log(dia)
+          }
+        }
+        diacou = 1;
+        diaspa -= 2;
+        for (i = 0; i < a-1; i++) {
+          dia = '';
+          if (i < (a - 2)) {
+            diaspa -= 2;
+            dia += space.repeat(diacou)
+            diacou += 1;
+            dia += star
+            dia += space.repeat(diaspa)
+            dia += star
+            console.log(dia)
+          }
+          else if (i == (a-2)) {
+            dia += space.repeat(a-1)
+            dia += star
+            console.log(dia)
+
+          }
+        }
       }
     </script>
   </body>
