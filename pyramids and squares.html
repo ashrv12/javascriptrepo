@@ -56,10 +56,14 @@
         }
         // start of reverse of first pyramid
         for (let i = a; i > 0 ; i--) {
-          result2 = star.repeat(i)
+          // result2 = star.repeat(i)
+          for (let v = i; v > 0; v--) {
+            result2 +=  star
+          }
           console.log(result2)
+          result2 = '';
         }
-        // start if empty pyramid
+        // start of empty pyramid
         for (let k = 1; k <= a ; k++) {
           let z = 0
           if (k < 3){
@@ -70,7 +74,10 @@
             result3 = '';
             result3 = result3 + star;
             z = k - 2;
-            result3 = result3 + space.repeat(z)
+            // result3 = result3 + space.repeat(z)
+            for (let n = 0; n < z; n++) {
+              result3 += space
+            }
             result3 = result3 + star
             console.log(result3)
             
@@ -80,7 +87,10 @@
         for (let k = a; k > 0 ; k--) {
           if (k < 3){
             result4 = '';
-            result4 = star.repeat(k)
+            // result4 = star.repeat(k)
+            for (let n = 0; n < k; n++){
+              result4 += star
+            }
             console.log(result4)
           }
 
@@ -88,7 +98,10 @@
             result4 = '';
             result4 = result4 + star;
             m = k - 2;
-            result4 = result4 + space.repeat(m)
+            // result4 = result4 + space.repeat(m)
+            for (n = 0; n < m; n++){
+              result4 += space
+            }
             result4 = result4 + star;
             console.log(result4)
           }
@@ -115,7 +128,10 @@
             resultesq += '\n';
           for (let z = 0; z < a-2; z++) {
             resultesq += star;
-            resultesq += space.repeat(a - 2);
+            // resultesq += space.repeat(a - 2);
+            for (let b = 0; b < (a-2); b++){
+              resultesq += space
+            }
             resultesq = resultesq + star + '\n';
           }
           for (let j = 0; j < a; j++){
@@ -131,14 +147,23 @@
         for (i = 0; i < a; i++) {
           centerpyr = '';
           countspace = countspace - 1;
-          centerpyr = centerpyr + space.repeat(countspace)
+          // centerpyr = centerpyr + space.repeat(countspace)
+          for (let g = 0; g < countspace; g++){
+            centerpyr += space
+          }
           if (i == 0) {
-            centerpyr += star.repeat(countstar);
+            // centerpyr += star.repeat(countstar);
+            for (let k = 0; k < countstar; k++){
+              centerpyr += star
+            }
             console.log(centerpyr)
           }
           else {
             countstar = countstar + 2
-            centerpyr += star.repeat(countstar);
+            // centerpyr += star.repeat(countstar);
+            for (let h = 0; h < countstar; h++){
+              centerpyr += star
+            }
             console.log(centerpyr)
           }
         }
@@ -162,22 +187,34 @@
           empty = ''; // resetting it for round 2
           cou = cou - 1
           if (i == 0) {
-            empty += space.repeat(cou)
+            // empty += space.repeat(cou)
+            for (let e = 0; e < cou; e++){
+              empty += space
+            }
             empty += star;
             console.log(empty)
             lastline += 2;
           }
           else if (i < (a-1)) {
-            empty += space.repeat(cou)
+            // empty += space.repeat(cou)
+            for (let e = 0; e < cou; e++){
+              empty += space
+            }
             empty += star;
-            empty += space.repeat(emptyspa)
+            // empty += space.repeat(emptyspa)
+            for (let j = 0; j < emptyspa; j++){
+              empty += space
+            }
             emptyspa += 2; // adding the next spacing
             empty += star;
             console.log(empty)
             lastline += 2;
           }
           else if (i == a-1) {
-            empty += star.repeat(lastline)
+            // empty += star.repeat(lastline)
+            for (let g = 0; g < lastline; g++){
+              empty += star
+            }
             console.log(empty)
           }
 
@@ -190,14 +227,23 @@
           dia = '';
           diacou -= 1;
           if (i == 0) {
-            dia += space.repeat(diacou)
+            // dia += space.repeat(diacou)
+            for (let r = 0; r < diacou; r++){
+              dia += space
+            }
             dia += star
             console.log(dia)
           }
           else {
-            dia += space.repeat(diacou)
+            // dia += space.repeat(diacou)
+            for (let c = 0; c < diacou; c++){
+              dia += space
+            }
             dia += star
-            dia += space.repeat(diaspa)
+            // dia += space.repeat(diaspa)
+            for (let p = 0; p < diaspa; p++){
+              dia += space
+            }
             diaspa += 2;
             dia += star
             console.log(dia)
@@ -209,15 +255,24 @@
           dia = '';
           if (i < (a - 2)) {
             diaspa -= 2;
-            dia += space.repeat(diacou)
+            // dia += space.repeat(diacou)
+            for (let s = 0; s < diacou; s++) {
+              dia += space
+            }
             diacou += 1;
             dia += star
-            dia += space.repeat(diaspa)
+            // dia += space.repeat(diaspa)
+            for (let v = 0; v < diaspa; v++) {
+              dia += space
+            }
             dia += star
             console.log(dia)
           }
           else if (i == (a-2)) {
-            dia += space.repeat(a-1)
+            // dia += space.repeat(a-1)
+            for (let y = 0; y < (a-1); y++) {
+              dia += space
+            }
             dia += star
             console.log(dia)
 
