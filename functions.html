@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- all even numbers -->
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Functions bodloguud</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="sadMath();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+        // herons triangle formula
+        // let input = prompt("please enter the 3 sides of the triangle")
+        // let array = input.split(",")
+        // function doSomething(a,b,c) {
+        //     let s = (a+b+c)/2
+        //     let area = s*(s-a)*(s-b)*(s-c)
+        //     area = Math.sqrt(area)
+        //     document.getElementById("garalt").innerText = area;
+        // }
+        // doSomething(Number(array[0]),Number(array[1]),Number(array[2]))
+
+        // aaabbbbcccddd = abcd
+        // function removeExcess(){
+        //     let main = document.getElementById("orolt").value;
+        //     let a = main.length
+        //     let b = ''
+        //     let count = 0
+        //     for (x = 0; x < a; x++) {
+        //         if (main[count] != main[count+1]) {
+        //             b += main[count]
+        //             count += 1
+        //         }else {
+        //             count += 1
+        //         }
+        //     }
+        //     document.getElementById("garalt").innerText = b;
+
+        // }
+
+        function sadMath(){
+            let z = Number(document.getElementById("orolt").value)
+            let equa = (z**2)+5*z+6
+            document.getElementById("garalt").innerText = equa
+        }
+    </script>
+  </body>
+</html>
