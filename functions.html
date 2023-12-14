@@ -26,7 +26,7 @@
                 />
                 <button
                   class="button is-primary is-large"
-                  onclick="sadMath();"
+                  onclick="removeExcess();"
                 >
                   Бодох
                 </button>
@@ -49,28 +49,29 @@
         // doSomething(Number(array[0]),Number(array[1]),Number(array[2]))
 
         // aaabbbbcccddd = abcd
-        // function removeExcess(){
-        //     let main = document.getElementById("orolt").value;
-        //     let a = main.length
-        //     let b = ''
-        //     let count = 0
-        //     for (x = 0; x < a; x++) {
-        //         if (main[count] != main[count+1]) {
-        //             b += main[count]
-        //             count += 1
-        //         }else {
-        //             count += 1
-        //         }
-        //     }
-        //     document.getElementById("garalt").innerText = b;
+        function removeExcess(){
+            let main = document.getElementById("orolt").value;
+            let a = main.length
+            let b = ''
+            let count = 0
+            for (x = 0; x < a; x++) {
+                if (main[count] != main[count+1]) {
+                    b += main[count]
+                    count += 1
+                }else {
+                    count += 1
+                }
+            }
+            document.getElementById("garalt").innerText = b;
 
-        // }
-
-        function sadMath(){
-            let z = Number(document.getElementById("orolt").value)
-            let equa = (z**2)+5*z+6
-            document.getElementById("garalt").innerText = equa
         }
+
+        // x2+5x+6
+        // function sadMath(){
+        //     let z = Number(document.getElementById("orolt").value)
+        //     let equa = (z**2)+5*z+6
+        //     document.getElementById("garalt").innerText = equa
+        // }
     </script>
   </body>
 </html>

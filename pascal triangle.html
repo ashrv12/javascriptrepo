@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Pyramid scheme</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function userInput(){
+        const input = document.getElementById("orolt").value;
+        return (input);
+      }
+      function displayOutput(text){
+        const outputElement = document.getElementById("garalt");
+        outputElement.innerText = text;
+
+      }
+      function doSomething() {
+        const a = userInput();
+        let pyramid = '';
+        let count = 1;
+        let countnum = 1;
+        let space = ' ';
+        
+        for (i = 0; i < a; i++) {
+          if (i == 0) {
+            pyramid += String(countnum) + space;
+            console.log(pyramid)
+            pyramid += '\n'
+            count += 1;
+          }
+          else {
+            for (z = 0; z < count; z++) {
+              countnum += 1;
+              pyramid += String(countnum) + space;
+            }
+            pyramid += "\n";
+            count += 1;
+          }
+        }
+        displayOutput(pyramid)
+      }
+    </script>
+  </body>
+</html>
