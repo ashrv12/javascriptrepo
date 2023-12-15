@@ -51,45 +51,62 @@
         const a = userInput();
         let pyramid = '';
         let count = 1;
-        let frspace = a + 4;
-        let space = " ";
-        let spacedd = "  "; // add 3 spaces for numbers
+        let countnum = 1;
+        let currentline = 0;
+        let space = ' ';
+        let spacex = a*2-1
+        let loopminus = 0
 
         for (i = 0; i < a; i++) {
           if (i == 0) {
-            for (s = 0; s < frspace; s++) {
+            for (u = 0; u<spacex; u++) {
               pyramid += space
             }
-            frspace -= 2;
-            pyramid += String(count) + spacedd
+            spacex -= 2;
+            pyramid += String(count)
+            count += 1;
             pyramid += "\n"
-          }
-          else if (i == 1) {
-            for (s = 0; s < frspace; s++) {
-              pyramid += space
-            }
-            frspace -= 2;
-            pyramid += String(count) + spacedd
-            pyramid += String(count) + spacedd
-            pyramid += "\n"
+            currentline += 1;
           }
           else {
-            for (h = 0; h < frspace; s++) {
+            currentline += 1;
+            countnum += 1;
+            for (v = 0; v<spacex; v++) {
+              pyramid += space
+            }
+            spacex -= 2;
+            for (x = 0; x < currentline; x++){
+              pyramid += String(count+x) + space
+            }
+            if (i == 1) {
+              for (x = 1; x < countnum; x++) {
+                pyramid += String(count) + space
+                console.log("current count is: " + count)
+                console.log("current countnum is: " + countnum)
+              }
+              countnum += 2;
+            }
+            else if (i > 1) {
+              for (x = 1; x < count; x++) {
+                pyramid += String(countnum - x) + space
+              }
+              countnum += 1
 
             }
+            
+            pyramid += "\n"
+            console.log(pyramid)
+            count += 1;
           }
         }
-        console.log(pyramid)
+
         displayOutput(pyramid)
       }
-      // |ooooooooo1
-      // |ooooooo1ooo1
-      // |ooooo1ooo2ooo1
-      // |ooo1ooo3ooo3ooo1
-      // |o1ooo4ooo6ooo4ooo1
-      // 1oo5ooo10ooo10ooo5oo1
-
-
+      // |oooooooo1
+      // |oooooo2o3o2
+      // |oooo3o4o5o4o3
+      // |oo4o5o6o7o6o5o4
+      // |5o6o7o8o9o8o7o6o5
     </script>
   </body>
 </html>
