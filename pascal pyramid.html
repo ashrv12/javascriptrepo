@@ -54,6 +54,7 @@
         let frspace = a + 4;
         let space = " ";
         let spacedd = "  "; // add 3 spaces for numbers
+        let add = 1;
 
         for (i = 0; i < a; i++) {
           if (i == 0) {
@@ -75,8 +76,18 @@
           }
           else {
             for (h = 0; h < frspace; s++) {
+              pyramid += space
+            }
+            pyramid += String(count) + spacedd
+            for (d = 1; d < i; d++) {
+              pyramid += String(count + add) + spacedd
+              add += 1;
 
             }
+            pyramid += String(count) +spacedd
+            pyramid += "\n"
+
+
           }
         }
         console.log(pyramid)
