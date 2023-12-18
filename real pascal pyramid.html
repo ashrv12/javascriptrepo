@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="has-background-link-light">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div
+            class="is-flex is-flex-direction-column is-justify-content-center"
+            style="height: 100vh"
+          >
+            <div class="box">
+                <h3 class="title is-3">Pyramid scheme</h3>
+              <div class="is-flex mb-4">
+                <input
+                  id="orolt"
+                  class="input is-large"
+                  type="text"
+                  placeholder="Input"
+                />
+                <button
+                  class="button is-primary is-large"
+                  onclick="doSomething();"
+                >
+                  Бодох
+                </button>
+              </div>
+              <pre><code id="garalt" style="font-size: 20px;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function userInput(){
+        const input = document.getElementById("orolt").value;
+        return (input);
+      }
+      function displayOutput(text){
+        const outputElement = document.getElementById("garalt");
+        outputElement.innerText = text;
+
+      }
+      function doSomething() {
+        const n = userInput();
+        let result = "";
+        let prev = [];
+        const lines = []
+
+        for (let i = 0; i < n; i++) {
+          let current = [];
+
+          if (i == 0) {
+            current = [1];
+          }else {
+            
+            for (let k = 0; k < i+1; k++){
+            
+              if (k == 0) {
+              current.push(prev[0])
+            }
+
+            if (k > 0 && k < i) {
+              current.push(prev[k-1] + prev[k])
+            }
+
+            if (k == i) {
+              current.push(prev[k-1])
+            }
+          }
+          prev = current;
+
+          console.log(current)
+
+          const lines = []
+          lines.push(current.join(" "))
+
+          result += current.join(" ")
+
+          result += "\n"
+          }
+          
+        }
+        console.log(lines)
+
+        const maxLen = lines[n-1].length
+        console.log(lines[n-1].length)
+
+        displayOutput(result)
+      }
+      // |oooooooo1
+      // |oooooo1o2o1
+      // |oooo1oo3o3oo1
+      // |oo1o4ooo6ooo4o1
+      // |1o5ooo10o10ooo5o1
+    </script>
+  </body>
+</html>
