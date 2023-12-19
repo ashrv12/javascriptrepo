@@ -1,73 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
     <style>
-        .playground{
-            height: 740px;
-            width: 740px;
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .playground {
+            width: 800px;
+            height: 800px;
             background-color: black;
             position: relative;
         }
-        .snakebody{
+
+        .body {
             position: absolute;
-            top: 100px;
-            left: 100px;
             width: 20px;
             height: 20px;
             background-color: white;
         }
+
+        .food {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            top: 100px;
+            left: 200px;
+        }
+
+        .button {
+            width: 100px;
+            border: 0;
+            color: white;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .button-box {
+            margin-left: 5px;
+        }
+
+
     </style>
-</head>
-<body>
-    <div class="playground">
-        <div class="snakebody" id="snakeHead"></div>
-    </div>
+    <body>
+        <div class="playground">
+            <div class="body" id="snakeHead"></div>
+            <div class="food" id="snakeFood"></div>
+        </div>
+        <div class="button-box">
+            <button class="button" id="up" onclick="changeDirection('up')">up</button>
+            <button class="button" id="down" onclick="changeDirection('down')">down</button>
+            <button class="button" id="right" onclick="changeDirection('right')">right</button>
+            <button class="button" id="left" onclick="changeDirection('left')">left</button>
+        </div>
 
-    <button onclick="changeDirection()">Up</button>
+        <script>
+            let snakePositionLeft = 0;
+            let snakePositionTop = 0;
+            let direction = "right"; // left, up, down
 
-    <script>
+            var upButton = document.getElementById('up');
+            var downButton = document.getElementById('down');
+            var rightButton = document.getElementById('right');
+            var leftButton = document.getElementById('left');
 
-        let snakePositionLeft = 0;
-        let snakePositionTop = 0;
-
-        let direction = "right" //right down up
-
-        function changeDirection(value) {
-            direction = value
-        }
-
-        function goRight() {
-            if (snakePositionLeft < 720) {
-                snakePositionLeft += 10;
-            } else {
-                snakePositionLeft = 0;
+            function buttonPressage(event) {
+                if (event.key === 'w') {
+                    upButton.click();
+                } else if (event.key === 's') {
+                    downButton.click();
+                } else if (event.key === 'd') {
+                    rightButton.click();
+                } else if (event.key === 'a') {
+                    leftButton.click();
+                }
             }
-        }
+            
+            document.addEventListener('keydown', buttonPressage);
 
-        function goLeft() {
-            if (snakePositionLeft == 0) {
-                snakePositionLeft -= 10;
-            } else {
-                snakePositionLeft = 0;
+            function changeDirection(value) {
+                direction = value;
             }
-        }
 
+            function goRight() {
+                if (snakePositionLeft < 780) {
+                    snakePositionLeft += 20;
+                } else {
+                    snakePositionLeft = 0;
+                }
+            }
 
-        function gameLoop() {
-            // console.log(new Date())
-            const head = document.getElementById("snakeHead");
-            head.style.left = snakePositionLeft;
-            head.style.top = snakePositionTop;  
+            function goLeft() {
+                if (snakePositionLeft == 0) {
+                    snakePositionLeft = 780;
+                } else {
+                    snakePositionLeft -= 20;
+                }
+            }
 
-            console.log(head)
+            function goDown() {
+                if (snakePositionTop < 780) {
+                    snakePositionTop += 20;
+                } else {
+                    snakePositionTop = 0;
+                }
+            }
 
-        }
+            function goUp() {
+                if (snakePositionTop == 0) {
+                    snakePositionTop = 780;
+                } else {
+                    snakePositionTop -= 20;
+                }
+            }
 
-        setInterval(gameLoop, 1000);
-    </script>
-    
-</body>
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * (max + 1));
+            }
+
+            function generateFood() {
+                const food = document.getElementById("snakeFood");
+
+                let foodPositionTop = getRandomInt(780);
+                let foodPositionLeft = getRandomInt(780);
+
+                food.style.left = foodPositionLeft;
+                food.style.top = foodPositionTop;
+            }
+
+            function gameLoop() {
+                const head = document.getElementById("snakeHead");
+
+                generateFood();
+
+                switch (direction) {
+                    case "up":
+                        goUp();
+                        break;
+                    case "down":
+                        goDown();
+                        break;
+                    case "right":
+                        goRight();
+                        break;
+                    case "left":
+                        goLeft();
+                        break;
+                }
+
+                head.style.left = snakePositionLeft;
+                head.style.top = snakePositionTop;
+            }
+
+            setInterval(gameLoop, 500);
+        </script>
+    </body>
 </html>
