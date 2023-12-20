@@ -1,6 +1,8 @@
 <html>
     <style>
         body {
+            background-image: url("photos/neo\ arcade.jpg");
+            background-size: 100vw;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -33,8 +35,8 @@
         .button {
             width: 100px;
             border: 0;
-            color: white;
-            background-color: black;
+            color: black;
+            background-color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,21 +45,40 @@
         }
 
         .button-box {
-            margin-left: 5px;
+            display: flex;
+        }
+        
+        h1 {
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .everything {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
 
     </style>
     <body>
-        <div class="playground">
-            <div class="body" id="snakeHead"></div>
-            <div class="food" id="snakeFood"></div>
-        </div>
-        <div class="button-box">
-            <button class="button" id="up" onclick="changeDirection('up')">up</button>
-            <button class="button" id="down" onclick="changeDirection('down')">down</button>
-            <button class="button" id="right" onclick="changeDirection('right')">right</button>
-            <button class="button" id="left" onclick="changeDirection('left')">left</button>
+        <div class="everything">
+            <div class="player">
+                <img src="" alt="">
+                <h1>Metro Spider (with Young Thug)</h1>
+            </div>
+            <div class="playground">
+                <div class="body" id="snakeHead"></div>
+                <div class="food" id="snakeFood"></div>
+            </div>
+            <div class="button-box">
+                <button class="button" id="up" onclick="changeDirection('up')">up</button>
+                <button class="button" id="down" onclick="changeDirection('down')">down</button>
+                <button class="button" id="right" onclick="changeDirection('right')">right</button>
+                <button class="button" id="left" onclick="changeDirection('left')">left</button>
+            </div>
+
         </div>
 
         <script>
@@ -71,13 +92,16 @@
             var leftButton = document.getElementById('left');
 
             function buttonPressage(event) {
-                if (event.key === 'w') {
+
+                console.log(event.key)
+
+                if (event.key === 'w' || event.key === 'ArrowUp') {
                     upButton.click();
-                } else if (event.key === 's') {
+                } else if (event.key === 's' || event.key === 'ArrowDown') {
                     downButton.click();
-                } else if (event.key === 'd') {
+                } else if (event.key === 'd' || event.key === 'ArrowRight') {
                     rightButton.click();
-                } else if (event.key === 'a') {
+                } else if (event.key === 'a' || event.key === 'ArrowLeft') {
                     leftButton.click();
                 }
             }
