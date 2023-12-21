@@ -14,20 +14,21 @@
             height: 800px;
             background-color: black;
             position: relative;
+            border: 20px solid purple;
         }
 
         .body {
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: white;
+            fill: white;
         }
 
         .food {
             position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: white;
+            width: 20px;
+            height: 20px;
+            fill: red;
             top: 100px;
             left: 200px;
         }
@@ -51,6 +52,7 @@
         h1 {
             color: white;
             font-family: sans-serif;
+            margin: 0;
         }
 
         .everything {
@@ -73,17 +75,64 @@
             margin-left: 20px;
         }
 
+        .top-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .actual-player {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .fix-icons {
+            margin-top: 10px;
+            width: 100px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .player-icon {
+            fill: white;
+            height: 20px;
+            width: auto;
+        }
+
+        #scoreElement {
+            font-size: 100;
+            position: absolute;
+            color: grey;
+            font-family: sans-serif;
+            justify-self: center;
+        }
+
 
     </style>
     <body>
         <div class="everything">
-            <div class="player">
-                <img class="album-cover" src="./photos/heroes.jpeg" alt="album cover">
-                <h1 class="name-of-song">Metro Spider (with Young Thug)</h1>
+            <div class="top-box">
+                <div class="player">
+                    <img class="album-cover" src="./photos/heroes.jpeg" alt="album cover">
+                </div>
+                <div class="actual-player">
+                    <h1 class="name-of-song">Metro Spider (with Young Thug)</h1>
+                    <div class="fix-icons">
+                        <svg class="player-icon" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/></svg>
+                        <svg class="player-icon" xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                        <svg class="player-icon" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/></svg>
+                    </div>
+                </div>
             </div>
             <div class="playground">
-                <div class="body" id="snakeHead"></div>
-                <div class="food" id="snakeFood"></div>
+                <span id="scoreElement">0</span>
+                <svg class="body" id="snakeHead" xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M40.1 467.1l-11.2 9c-3.2 2.5-7.1 3.9-11.1 3.9C8 480 0 472 0 462.2V192C0 86 86 0 192 0S384 86 384 192V462.2c0 9.8-8 17.8-17.8 17.8c-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                <!-- <div class="body" id="snakeHead"></div> -->
+                <svg class="food" id="snakeFood" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M428.3 3c11.6-6.4 26.2-2.3 32.6 9.3l4.8 8.7c19.3 34.7 19.8 75.7 3.4 110C495.8 159.6 512 197.9 512 240c0 18.5-3.1 36.3-8.9 52.8c-6.1 17.3-28.5 16.3-36.8-.1l-11.7-23.4c-4.1-8.1-12.4-13.3-21.5-13.3H360c-13.3 0-24-10.7-24-24V152c0-13.3-10.7-24-24-24l-17.1 0c-21.3 0-30-23.9-10.8-32.9C304.7 85.4 327.7 80 352 80c28.3 0 54.8 7.3 77.8 20.2c5.5-18.2 3.7-38.4-6-55.8L419 35.7c-6.4-11.6-2.3-26.2 9.3-32.6zM171.2 345.5L264 160l40 0v80c0 26.5 21.5 48 48 48h76.2l23.9 47.8C372.3 443.9 244.3 512 103.2 512H44.4C19.9 512 0 492.1 0 467.6c0-20.8 14.5-38.8 34.8-43.3l49.8-11.1c37.6-8.4 69.5-33.2 86.7-67.7z"/></svg>
+                <!-- <div class="food" id="snakeFood"></div> -->
             </div>
             <div class="button-box">
                 <button class="button" id="up" onclick="changeDirection('up')">up</button>
@@ -95,9 +144,26 @@
         </div>
 
         <script>
+            let unit = 20;
+            let playgroundWidth = 40;
+            let playgroundHeight = 40;
+
+            let score = 0;
+
+            // let snakeBodyParts = [
+            //     { top: 2, left: 2 },
+            //     { top: 2, left: 3 },
+            //     { top: 2, left: 4 },
+            // ];
+
             let snakePositionLeft = 0;
             let snakePositionTop = 0;
             let direction = "right"; // left, up, down
+
+            let foodPositionTop;
+            let foodPositionLeft;
+
+            const scoreElement = document.getElementById("scoreElement");
 
             var upButton = document.getElementById('up');
             var downButton = document.getElementById('down');
@@ -127,7 +193,7 @@
 
             function goRight() {
                 if (snakePositionLeft < 780) {
-                    snakePositionLeft += 20;
+                    snakePositionLeft += unit;
                 } else {
                     snakePositionLeft = 0;
                 }
@@ -143,7 +209,7 @@
 
             function goDown() {
                 if (snakePositionTop < 780) {
-                    snakePositionTop += 20;
+                    snakePositionTop += unit;
                 } else {
                     snakePositionTop = 0;
                 }
@@ -153,7 +219,7 @@
                 if (snakePositionTop == 0) {
                     snakePositionTop = 780;
                 } else {
-                    snakePositionTop -= 20;
+                    snakePositionTop -= unit;
                 }
             }
 
@@ -161,20 +227,38 @@
                 return Math.floor(Math.random() * (max + 1));
             }
 
+            function initPlayground() {
+                const playground = document.getElementById("playground");
+                const head = document.getElementById("snakeHead");
+                head.style.height = 1 * unit;
+                head.style.width = 1 * unit;
+                const food = document.getElementById("snakeFood");
+                food.style.height = 1 * unit;
+                food.style.width = 1 * unit;
+
+                // let bodyHtml = "";
+                // for (let i = 0; i < snakeBodyParts.length; i++) {
+                //     bodyHtml += '<div class="body" style="width: ' + unit + "px; height: " + unit + "px; top: " + snakeBodyParts[i].top * unit + "px; left:" + snakeBodyParts[i].left * unit + 'px"></div>';
+                // }
+                // const body = document.getElementById("snakeBody");
+                // body.innerHTML = bodyHtml;
+            }
+
+
             function generateFood() {
                 const food = document.getElementById("snakeFood");
+                foodPositionTop = getRandomInt(playgroundHeight - 1);
+                foodPositionLeft = getRandomInt(playgroundWidth - 1);
+                food.style.left = foodPositionLeft * unit;
+                food.style.top = foodPositionTop * unit;
 
-                let foodPositionTop = getRandomInt(780);
-                let foodPositionLeft = getRandomInt(780);
-
-                food.style.left = foodPositionLeft;
-                food.style.top = foodPositionTop;
+                food.style.left = foodPositionLeft * unit;
+                food.style.top = foodPositionTop * unit;
+                console.log({foodPositionLeft, foodPositionTop})
             }
 
             function gameLoop() {
                 const head = document.getElementById("snakeHead");
-
-                generateFood();
 
                 switch (direction) {
                     case "up":
@@ -190,12 +274,25 @@
                         goLeft();
                         break;
                 }
+                if (snakePositionTop/20 == foodPositionTop && snakePositionLeft/20 == foodPositionLeft) {
+                    score++;
+                    scoreElement.innerText = score;
+                    generateFood();
+                }
+
+                if (snakePositionTop > 800 || snakePositionLeft > 800) {
+                    score = 0
+                } else if (snakePositionTop < 0 || snakePositionLeft < 0) {
+                    score = 0
+                }
 
                 head.style.left = snakePositionLeft;
                 head.style.top = snakePositionTop;
+                console.log({snakePositionTop, snakePositionLeft})
             }
-
-            setInterval(gameLoop, 500);
+            initPlayground();
+            generateFood();
+            setInterval(gameLoop, 100);
         </script>
     </body>
 </html>
