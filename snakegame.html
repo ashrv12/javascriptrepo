@@ -110,6 +110,16 @@
             justify-self: center;
         }
 
+        #resetElement {
+            font-size: 100;
+            position: absolute;
+            color: blueviolet;
+            font-family: sans-serif;
+            justify-self: center;
+            opacity: 0;
+            bottom: 0;
+        }
+
 
     </style>
     <body>
@@ -129,6 +139,7 @@
             </div>
             <div class="playground">
                 <span id="scoreElement">0</span>
+                <span id="resetElement">RESET</span>
                 <svg class="body" id="snakeHead" xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M40.1 467.1l-11.2 9c-3.2 2.5-7.1 3.9-11.1 3.9C8 480 0 472 0 462.2V192C0 86 86 0 192 0S384 86 384 192V462.2c0 9.8-8 17.8-17.8 17.8c-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
                 <!-- <div class="body" id="snakeHead"></div> -->
                 <svg class="food" id="snakeFood" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" d="M428.3 3c11.6-6.4 26.2-2.3 32.6 9.3l4.8 8.7c19.3 34.7 19.8 75.7 3.4 110C495.8 159.6 512 197.9 512 240c0 18.5-3.1 36.3-8.9 52.8c-6.1 17.3-28.5 16.3-36.8-.1l-11.7-23.4c-4.1-8.1-12.4-13.3-21.5-13.3H360c-13.3 0-24-10.7-24-24V152c0-13.3-10.7-24-24-24l-17.1 0c-21.3 0-30-23.9-10.8-32.9C304.7 85.4 327.7 80 352 80c28.3 0 54.8 7.3 77.8 20.2c5.5-18.2 3.7-38.4-6-55.8L419 35.7c-6.4-11.6-2.3-26.2 9.3-32.6zM171.2 345.5L264 160l40 0v80c0 26.5 21.5 48 48 48h76.2l23.9 47.8C372.3 443.9 244.3 512 103.2 512H44.4C19.9 512 0 492.1 0 467.6c0-20.8 14.5-38.8 34.8-43.3l49.8-11.1c37.6-8.4 69.5-33.2 86.7-67.7z"/></svg>
@@ -164,6 +175,7 @@
             let foodPositionLeft;
 
             const scoreElement = document.getElementById("scoreElement");
+            const resetElement = document.getElementById("resetElement")
 
             var upButton = document.getElementById('up');
             var downButton = document.getElementById('down');
@@ -192,7 +204,7 @@
             }
 
             function goRight() {
-                if (snakePositionLeft < 780) {
+                if (snakePositionLeft < 800) {
                     snakePositionLeft += unit;
                 } else {
                     snakePositionLeft = 0;
@@ -201,14 +213,14 @@
 
             function goLeft() {
                 if (snakePositionLeft == 0) {
-                    snakePositionLeft = 780;
+                    snakePositionLeft = 800;
                 } else {
                     snakePositionLeft -= 20;
                 }
             }
 
             function goDown() {
-                if (snakePositionTop < 780) {
+                if (snakePositionTop < 800) {
                     snakePositionTop += unit;
                 } else {
                     snakePositionTop = 0;
@@ -217,7 +229,7 @@
 
             function goUp() {
                 if (snakePositionTop == 0) {
-                    snakePositionTop = 780;
+                    snakePositionTop = 800;
                 } else {
                     snakePositionTop -= unit;
                 }
@@ -257,6 +269,15 @@
                 console.log({foodPositionLeft, foodPositionTop})
             }
 
+
+            function resetTextOn() {
+                resetElement.style.opacity = 1;
+            }
+
+            function resetTextOff() {
+                resetElement.style.opacity = 0;
+            }
+
             function gameLoop() {
                 const head = document.getElementById("snakeHead");
 
@@ -280,15 +301,26 @@
                     generateFood();
                 }
 
-                if (snakePositionTop > 800 || snakePositionLeft > 800) {
-                    score = 0
-                } else if (snakePositionTop < 0 || snakePositionLeft < 0) {
-                    score = 0
+                if (snakePositionTop == 800 || snakePositionLeft == 800) {
+                    resetTextOn();
+                    score = 0;
+                } else if (snakePositionTop == 0 || snakePositionLeft == 0) {
+                    resetTextOn();
+                    score = 0;
+                }
+
+                if (score == 1) {
+                    resetTextOff();
+                }
+
+                if (foodPositionLeft == 0 || foodPositionTop == 0 || foodPositionLeft == 40 || foodPositionTop == 40) {
+                    generateFood();
                 }
 
                 head.style.left = snakePositionLeft;
                 head.style.top = snakePositionTop;
-                console.log({snakePositionTop, snakePositionLeft})
+                // console.log({snakePositionTop, snakePositionLeft})
+                console.log({foodPositionLeft, foodPositionTop})
             }
             initPlayground();
             generateFood();
