@@ -21,18 +21,19 @@ body {
 
 /* right under body main div */
 .main-div {
-    width: 80vw;
-    height: 80vh;
+    width: 95vw;
+    height: 95vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    border: 1px solid red;
+    padding-top: 30px;
 }
 /* the image in japanese */
 .title-png {
     width: 450px;
     height: auto;
+    margin-bottom: 20px;
 }
 /* working on boxes */
 .clip-title {
@@ -47,8 +48,16 @@ body {
 
 .adding-flair {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-left: 20px;
+}
+
+
+
+.group-title {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .code-icon {
@@ -62,14 +71,83 @@ body {
 
 .todo-box-main {
     width: 99%;
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
 }
+
+/* LIST ITEMS */
+
+.list-item {
+    border: 1px dashed #ff008d;
+    height: 150px;
+    width: 95%;
+    align-self: center;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.content-icon {
+    fill: #ff008d;
+    justify-content: center;
+}
+
+/* LIST ITEMS /\ /\ /\ /\ /\ */
+
+/* task contents */
+
+.the-task {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.task-header {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 900;
+}
+
+.task-desc {
+    margin: 0;
+    color: white;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 400;
+}
+
+.task-importance {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    color: #E26EE5;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 700;
+    border: 1px solid #E26EE5;
+    border-radius: 3px;
+}
+
+.icondiv {
+    padding-top: 15px;
+    justify-self: center;
+}
+
+.content-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* end of task contents */
 
 /* main box */
 
 .clip-notes {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid white;
     border-radius: 10px;
 }
