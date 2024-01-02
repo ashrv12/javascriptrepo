@@ -181,13 +181,16 @@ body {
     cursor: pointer;
 }
 
-#edit-button {
+.edit-button {
+    fill: #ff008d;
+    width: 20px;
+    height: 20px;
     margin-top: 10px;
 }
 
 /* hover for the edit icon */
 
-#edit-button:hover {
+.edit-button:hover {
     cursor: pointer;
 }
 
@@ -202,6 +205,14 @@ body {
     justify-content: space-between;
     border: 1px solid white;
     border-radius: 10px;
+}
+
+.target-divs {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
 }
 
 /* adding card area */
