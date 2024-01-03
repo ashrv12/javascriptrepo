@@ -81,6 +81,7 @@ body {
     width: 99%;
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 /* LIST ITEMS */
@@ -198,7 +199,17 @@ body {
 
 /* main box */
 
-.clip-notes {
+.clip-notes-todo {
+    width: 340px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.clip-notes-inprog {
     width: 340px;
     display: flex;
     flex-direction: column;
@@ -206,6 +217,26 @@ body {
     border: 1px solid white;
     border-radius: 10px;
 }
+
+.clip-notes-stuck {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.clip-notes-give {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+/* individual stretching boxes /\ */
 
 .target-divs {
     width: 340px;

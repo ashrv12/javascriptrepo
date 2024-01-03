@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = [
+            {priority: "high", value: "Task 1"},
+            {priority: "medium", value: "Task 2"},
+            {priority: "low", value: "Task 3"},
+            {priority: "high", value: "Task 43"},
+            {priority: "high", value: "Task 22"},
+            {priority: "low", value: "Task 11"},
+            {priority: "medium", value: "Task 10"},
+            {priority: "high", value: "Task 5"},
+            {priority: "high", value: "Task 6"},
+        ];
+
+        const order = {high: 1, medium: 2, low: 3};
+
+        const sortedArray = array.sort((a,b) => {
+            return order[a.priority] - order[b.priority]
+        });
+
+        console.log(sortedArray);
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

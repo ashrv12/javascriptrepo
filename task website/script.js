@@ -2,6 +2,17 @@ let currentTarget = "";
 
 let generateId = 0;
 
+let todoarray = [
+    {id: 1, title: "To do", description: "Someone save me", category: "to-do", priority: "High"},
+];
+let inprogarray = [
+    {id: 1, title: "In Progress", description: "Someone save me", category: "in-progress", priority: "Medium"},
+];
+let stuckarray = [
+    {id: 1, title: "Stuck", description: "Someone save me", category: "stuck", priority: "Low"},
+];
+let givearray = [];
+
 
 function showNewTask() {
     const newTask = document.getElementById("create-task");
