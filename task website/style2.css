@@ -128,7 +128,7 @@ body {
 
 
 /* low importance */
-.task-importance {
+.priority-low {
     width: 40px;
     display: flex;
     justify-content: center;
@@ -140,7 +140,7 @@ body {
     border-radius: 3px;
 }
 /* medium importance */
-.task-importance-medium {
+.priority-medium {
     width: 70px;
     display: flex;
     justify-content: center;
@@ -152,7 +152,7 @@ body {
     border-radius: 3px;
 }
 /* high importance */
-.task-importance-high {
+.priority-high {
     width: 50px;
     display: flex;
     justify-content: center;
