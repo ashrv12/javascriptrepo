@@ -162,19 +162,19 @@
 
                 <div class="task-group">
                     <h3 class="task-inner-header">Title</h3>
-                    <input class="task-title-input" type="text">
+                    <input id="edit-title" class="task-title-input" type="text">
                 </div>
 
 
                 <div class="task-group">
                     <h3 class="task-inner-header">Description</h3>
-                    <textarea class="task-title-input" name="description" id="description-input" cols="30" rows="10"></textarea>
+                    <textarea id="edit-desc" class="task-title-input" name="description" id="description-input" cols="30" rows="10"></textarea>
                 </div>
 
 
                 <div id="stats-select" class="task-group">
                     <h3 class="task-inner-header">Status</h3>
-                    <select class="status-select" id="card" name="cards">
+                    <select class="status-select" id="edit-categor" name="cards">
                         <option class="select-text" value="toDo">To Do</option>
                         <option class="select-text" value="inProgress">In Progress</option>
                         <option class="select-text" value="stuck">Stuck</option>
@@ -187,7 +187,7 @@
 
                 <div id="priority-select" class="task-group">
                     <h3 class="task-inner-header">Priority</h3>
-                    <select class="status-select" id="card" name="cards">
+                    <select class="status-select" id="edit-impo" name="cards">
                         <option class="select-text" value="low">Low</option>
                         <option class="select-text" value="medium">Medium</option>
                         <option class="select-text" value="high">High</option>
@@ -195,10 +195,9 @@
                 </div>
 
 
-
             </div>
 
-            <button class="task-button">
+            <button class="task-button" onclick="confirmEdit()">
                 CONFIRM
             </button>
 
@@ -207,6 +206,8 @@
     </div>
 
     <!-- end of edit button -->
+
+    <!-- what are you trying to do>>>>>?????? -->
 
     <h4 class="end-agreement"><span>&copy;</span> Copyright by ya boy ya know</h4>
     <script src="./script.js"></script>
