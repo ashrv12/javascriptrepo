@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+  }
+  
+   
+  
+  #game-container {
+    text-align: center;
+  }
+  
+   
+  
+  #result {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+   
+  
+  .btn {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+   
+  
+  #reset-btn {
+    background-color: #f00;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+  }
+  
+   
+  
+  #score {
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+  
+   
+  
+  .choise-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .choise {
+    display: flex;
+    gap: 10px;
+    font-size: 1em;
+  }
+  
+   
+  
+  @media (max-width: 400px) {
+    .choise-container {
+      flex-direction: column;
+    }
+  }
