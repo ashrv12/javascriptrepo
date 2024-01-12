@@ -49,15 +49,15 @@ console.log(onlyNames)
 // 3. Sort the inventors by birthdate, oldest to youngest
 
 
-function birth(input) {
-    return input;
+function birth(x) {
+    return x;
 }
 
 const birthArray = inventors.map(birth)
 console.log(birthArray)
 
 birthArray.sort((a, b) => {
-    return b.year - a.year;
+    return a.year - b.year;
 });
 
 // 4. Sort the inventors by years lived
@@ -69,3 +69,16 @@ livedArray.sort((a, b) => {
 })
 
 console.log(livedArray)
+
+
+// 5. Sort by age from longest life span to shortest life span. Show the age.
+
+const withAge = inventors.map(birth)
+
+withAge.sort((a, b) => {
+    a.age = a.passed - a.year;
+    b.age = b.passed - b.year;
+    return b.age - a.age;
+})
+
+console.log(withAge)
